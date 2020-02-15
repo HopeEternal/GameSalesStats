@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Box from '@material-ui/core/Box';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 
 
-class Graphs extends Component { 
-
-    render() {
+export default function Header() { 
         return (
           <AppBar position="relative">
           <Box alignItems="center" p="1rem">
@@ -14,11 +12,4 @@ class Graphs extends Component {
             </Box>
           </AppBar>
         );
-    }
 }
-//            <header className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary jss12 jss15 mui-fixed MuiPaper-elevation4">
-
-
-export default Graphs;
-
-

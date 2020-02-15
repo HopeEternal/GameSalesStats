@@ -12,7 +12,7 @@ class StatTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        table: "test"
+        table: ""
       }
   }
 

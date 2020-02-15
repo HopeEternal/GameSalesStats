@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import GamerImage from '../gamerfamily.png'
 
-class Introduction extends Component {
-  render() {
+export default function Introduction() {
     return (
       <Container maxWidth="lg">
         <Grid container spacing={6}>
@@ -21,7 +20,4 @@ class Introduction extends Component {
         </Grid>
       </Container>
     )
-  }
 }
-
-export default Introduction;

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Header from './components/Header.js';
 import Box from '@material-ui/core/Box';
 import Introduction from './components/Introduction.js';
@@ -9,9 +9,7 @@ import gamesales from './gamesales'
 
 import './App.css';
 
-class App extends Component {
-
-  render() {
+export default function App() {
     return (
       <div className="App">
         <CssBaseline />
@@ -24,7 +22,4 @@ class App extends Component {
         <CssBaseline />
       </div>
     );
-  }
 }
-
-export default App;
