@@ -1,6 +1,6 @@
-# Tic Tac Toe
+# Top Game Sales
 
-A full stack application showcasing real data on video game sales. 
+A full stack React application showcasing real data on video game sales. 
 
 Now available on Heroku: https://topgamesales.herokuapp.com/
 
@@ -10,11 +10,8 @@ Now available on Heroku: https://topgamesales.herokuapp.com/
 * [Chart.js](https://www.chartjs.org/) - The data visualization kit
 * [Node.js](https://nodejs.org/) - JavaScript runtime
 * [Express](https://expressjs.com/) - Backend web server framework
-* [Babel](https://babeljs.io/) - JavaScript Compiler
-* [Webpack](https://webpack.js.org/) - Project Bundler
 * [PostGresSQL](https://www.postgresql.org/) - Database
 * [MaterialUI](https://material-ui.com/) - Front End CSS Framework
-* 
 
 ## License
 
