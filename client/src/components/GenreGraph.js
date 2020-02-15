@@ -64,12 +64,10 @@ export default class GenreGraph extends Component {
   render() {
     return (
       <Container maxWidth="lg">
-      <p>GenreGraph {console.log(this.props.gamesales)}</p>
-
         <Bar
         data={this.state}
         width={100}
-        height={300}
+        height={200}
         options={{
           maintainAspectRatio: false,
           title:{

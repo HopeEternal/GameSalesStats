@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Container from '@material-ui/core/Container';
-
-import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -11,10 +9,28 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 class StatTable extends Component {
-  
+  constructor(props) {
+    super(props);
+    this.state = {
+        table: "test"
+      }
+  }
+
+  getGamesTable() {
+    fetch('/api/getGamesTable')
+      .then(res => res.text())
+      .then(res => console.log({table: res}))
+      .catch(err => console.log('Fetch error', err))
+  }
+
+  componentDidMount() {
+    this.getGamesTable();    
+    console.log("get games table res is " + this.state.table)
+  }
   render() {
     return (
       <Container maxWidth="lg">
+      <p>API call for table {this.state.table}</p>
         <h1>Top 10 Games Worldwide</h1>
         <TableContainer component={Paper} elevation={3}>
         <Table aria-label="simple table">

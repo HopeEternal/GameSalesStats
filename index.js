@@ -34,6 +34,29 @@ app.get('/api/getMostCommonGenre', (req, res) => {
   });
 });
 
+app.get('/api/getGamesTable', (req, res) => {
+  pool.connect(function(err, client, done) {
+    if (err) {
+      console.log("not able to get connection " + err);
+      res.status(400).send(err);
+    }
+    var sqlStmt = "SELECT   * " +
+                  "FROM     gamesales " +
+                  "GROUP BY rank_id " +
+                  "ORDER BY COUNT(*) " +
+                  "LIMIT    1;";
+    client.query(sqlStmt, function(err, result) {
+      done();
+      if (err) {
+        console.log(err);
+        res.status(400).send(err);
+      }
+      console.log(result.rows);
+      res.status(200).send(result.rows);
+    });
+  });
+});
+
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
