@@ -12,14 +12,14 @@ class StatTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        table: ""
+        table: []
       }
   }
 
   getGamesTable() {
     fetch('/api/getGamesTable')
-      .then(res => res.text())
-      .then(res => console.log({table: res}))
+      .then(res => res.json())
+      .then(res => this.setState({table: res}))
       .catch(err => console.log('Fetch error', err))
   }
 
@@ -30,7 +30,6 @@ class StatTable extends Component {
   render() {
     return (
       <Container maxWidth="lg">
-      <p>API call for table {this.state.table}</p>
         <h1>Top 10 Games Worldwide</h1>
         <TableContainer component={Paper} elevation={3}>
         <Table aria-label="simple table">
@@ -46,7 +45,7 @@ class StatTable extends Component {
             </TableRow>
           </TableHead>
           <TableBody>
-          {this.props.gamesales.map(game => (
+          {this.state.table.map(game => (
               <TableRow key={game.rank_id}>
                 <TableCell component="th" scope="row">
                   {game.rank_id}

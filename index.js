@@ -40,11 +40,13 @@ app.get('/api/getGamesTable', (req, res) => {
       console.log("not able to get connection " + err);
       res.status(400).send(err);
     }
-    var sqlStmt = "SELECT   * " +
+    var sqlStmt = "SELECT   rank_id, game_name, platform, year_released, genre, publisher, sales " +
                   "FROM     gamesales " +
-                  "GROUP BY rank_id " +
-                  "ORDER BY COUNT(*) " +
-                  "LIMIT    1;";
+                  "LEFT JOIN genres ON gamesales.genre_id=genres.genre_id " +
+                  "LEFT JOIN publisher ON gamesales.publisher_id=publisher.publisher_id " +
+                  "LEFT JOIN platforms ON gamesales.platform_id=platforms.platform_id " +
+                  "ORDER BY gamesales.rank_id " +
+                  "LIMIT    10;";
     client.query(sqlStmt, function(err, result) {
       done();
       if (err) {
