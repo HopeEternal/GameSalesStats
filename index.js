@@ -17,11 +17,12 @@ app.get('/api/getMostCommonGenre', (req, res) => {
       console.log("not able to get connection " + err);
       res.status(400).send(err);
     }
-    var sqlStmt = "SELECT   genre_id " +
+    var sqlStmt = "SELECT   genre, COUNT(genre) " +
                   "FROM     gamesales " +
-                  "GROUP BY genre_id " +
-                  "ORDER BY COUNT(*) DESC " +
-                  "LIMIT    1;";
+                  "LEFT JOIN genres ON gamesales.genre_id=genres.genre_id " +
+                  "GROUP BY genre " +
+                  "ORDER BY COUNT(*) DESC;";
+                  
     client.query(sqlStmt, function(err, result) {
       done();
       if (err) {

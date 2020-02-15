@@ -6,7 +6,7 @@ export default class GenreGraph extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        labels: [this.props.gamesales[0].game_name,'RPG','Action','Puzzle','Sports'],
+        labels: [],
         datasets: [
           {
             label:'Population',
@@ -26,23 +26,35 @@ export default class GenreGraph extends Component {
               '#4C0099',
             ]
           }
-        ],
-        genres: "test"
-        
+        ]
       }
   }
 
   getMostCommonGenre() {
     fetch('/api/getMostCommonGenre')
-      .then(res => res.text())
-      .then(res => this.setState({genres: res}))
+      .then(res => res.json())
+      .then(res => 
+        {
+          this.setState({genres: res});
+          this.state.genres.map(genrePop => {
+            this.setState({labels: [...this.state.labels, genrePop.genre]});
+            this.setState({datasets: [...this.state.datasets, genrePop.count]})
+          }
+          )
+        }
+      )
       .catch(err => console.log('Fetch error', err))
+      
   }
+
+  
+
+  
 
   componentDidMount() {
     
     this.getMostCommonGenre();
-
+    
     /*
       1. Iterate over Array of Objects this.props.gamesales
                 Sample: this.props.gamesales.map(game => ())
@@ -80,7 +92,6 @@ export default class GenreGraph extends Component {
           }
         }}
         />
-        <p>{this.state.genres}</p>
       </Container>
     )
   }

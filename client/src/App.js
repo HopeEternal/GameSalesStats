@@ -17,7 +17,7 @@ export default function App() {
           <Box p="2rem" textAlign="left">
             <Introduction />
             <Graphs gamesales={gamesales}/>
-            <Table gamesales={gamesales}  /> 
+            <Table /> 
           </Box>
         <CssBaseline />
       </div>
