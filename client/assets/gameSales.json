@@ -1,0 +1,62 @@
+[
+    {
+        "rank_id": "1",
+        "game_name": "Wii Sports",
+        "year_released": "2006",
+        "sales": "82.74"
+    },
+    {
+        "rank_id": "2",
+        "game_name": "Super Mario Bros.",
+        "year_released": "1985",
+        "sales": "40.24"
+    },
+    {
+        "rank_id": "3",
+        "game_name": "Mario Kart Wii",
+        "year_released": "2008",
+        "sales": "35.82"
+    },
+    {
+        "rank_id": "4",
+        "game_name": "Wii Sports Resort",
+        "year_released": "2009",
+        "sales": "33"
+    },
+    {
+        "rank_id": "5",
+        "game_name": "Pokemon Red/Pokemon Blue",
+        "year_released": "1996",
+        "sales": "31.37"
+    },
+    {
+        "rank_id": "6",
+        "game_name": "Tetris",
+        "year_released": "1989",
+        "sales": "30.26"
+    },
+    {
+        "rank_id": "7",
+        "game_name": "New Super Mario Bros.",
+        "year_released": "2006",
+        "sales": "30.01"
+    },
+    {
+        "rank_id": "8",
+        "game_name": "Wii Play",
+        "year_released": "2006",
+        "sales": "29.02"
+    },
+    {
+        "rank_id": "9",
+        "game_name": "New Super Mario Bros. Wii",
+        "year_released": "2009",
+        "sales": "28.62"
+    },
+    {
+        "rank_id": "10",
+        "game_name": "Duck Hunt",
+        "year_released": "1984",
+        "sales": "28.31"
+    }
+]
