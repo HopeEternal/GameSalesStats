@@ -4,15 +4,15 @@ import Grid from '@material-ui/core/Grid';
 import GenreGraph from './GenreGraph.js'
 import PopularityGraph from './PopularityGraph.js'
 
-export default function Graphs(props) {
+export default function Graphs() {
     return (
       <Container maxWidth="lg">
         <Grid container spacing={6}>
           <Grid item xs={6}>
-            <GenreGraph gamesales={props.gamesales} />
+            <GenreGraph />
           </Grid>
-          <Grid item xs>
-           <PopularityGraph gamesales={props.gamesales} />
+          <Grid item xs={6}>
+           <PopularityGraph />
           </Grid>
         </Grid>
       </Container>

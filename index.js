@@ -35,6 +35,31 @@ app.get('/api/getMostCommonGenre', (req, res) => {
   });
 });
 
+app.get('/api/getRPGPopularity', (req, res) => {
+  pool.connect(function(err, client, done) {
+    if (err) {
+      console.log("not able to get connection " + err);
+      res.status(400).send(err);
+    }
+    var sqlStmt = "SELECT   year_released, SUM(sales) " +
+                  "FROM     gamesales " +
+                  "LEFT JOIN genres ON gamesales.genre_id=genres.genre_id " +
+                  "WHERE    genres.genre='Role-Playing' AND gamesales.year_released IS NOT NULL " +
+                  "GROUP BY gamesales.year_released " +
+                  "ORDER BY gamesales.year_released;";
+                  
+    client.query(sqlStmt, function(err, result) {
+      done();
+      if (err) {
+        console.log(err);
+        res.status(400).send(err);
+      }
+      console.log(result.rows);
+      res.status(200).send(result.rows);
+    });
+  });
+});
+
 app.get('/api/getGamesTable', (req, res) => {
   pool.connect(function(err, client, done) {
     if (err) {

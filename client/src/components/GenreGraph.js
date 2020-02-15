@@ -3,8 +3,8 @@ import Container from '@material-ui/core/Container';
 import {Bar} from 'react-chartjs-2';
 
 export default class GenreGraph extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
         labels: [],
         datasets: [
@@ -13,12 +13,19 @@ export default class GenreGraph extends Component {
             data:[
             ],
             backgroundColor: [
-              '#CC99FF',
-              '#B266FF',
-              '#9933FF',
-              '#7F00FF',
-              '#6600CC',
-              '#4C0099',
+              '#622995',
+              '#6b2f98',
+              '#74359b',
+              '#7d3b9e',
+              '#8541a1',
+              '#8e47a4',
+              '#974da7',
+              '#a053aa',
+              '#a959ad',
+              '#b15fb0',
+              '#ba65b3',
+              '#c36bb6',
+              '#cc71b9'
             ]
           }
         ],

@@ -5,7 +5,6 @@ import Introduction from './components/Introduction.js';
 import Table from './components/Table.js';
 import Graphs from './components/Graphs.js';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import gamesales from './gamesales'
 
 import './App.css';
 
@@ -16,7 +15,7 @@ export default function App() {
           <Header />
           <Box p="2rem" textAlign="left">
             <Introduction />
-            <Graphs gamesales={gamesales}/>
+            <Graphs/>
             <Table /> 
           </Box>
         <CssBaseline />

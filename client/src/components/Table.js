@@ -25,7 +25,6 @@ class StatTable extends Component {
 
   componentDidMount() {
     this.getGamesTable();    
-    console.log("get games table res is " + this.state.table)
   }
   render() {
     return (
