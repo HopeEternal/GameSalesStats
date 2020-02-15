@@ -11,11 +11,6 @@ export default class GenreGraph extends Component {
           {
             label:'Population',
             data:[
-              290441,
-              239084,
-              193080,
-              213214, 
-              312354
             ],
             backgroundColor: [
               '#CC99FF',
@@ -26,7 +21,8 @@ export default class GenreGraph extends Component {
               '#4C0099',
             ]
           }
-        ]
+        ],
+        genres: []
       }
   }
 
@@ -36,41 +32,23 @@ export default class GenreGraph extends Component {
       .then(res => 
         {
           this.setState({genres: res});
+          let dataCont = [...this.state.datasets];
+          let dataPool = {...dataCont[0]};
+
           this.state.genres.map(genrePop => {
             this.setState({labels: [...this.state.labels, genrePop.genre]});
-            this.setState({datasets: [...this.state.datasets, genrePop.count]})
-          }
-          )
+            
+            dataPool.data = [...dataPool.data, parseInt(genrePop.count)];
+            dataCont[0] = dataPool;
+            this.setState({datasets: dataCont});
+          })
         }
       )
-      .catch(err => console.log('Fetch error', err))
-      
+      .catch(err => console.log('Fetch error', err)) 
   }
 
-  
-
-  
-
   componentDidMount() {
-    
     this.getMostCommonGenre();
-    
-    /*
-      1. Iterate over Array of Objects this.props.gamesales
-                Sample: this.props.gamesales.map(game => ())
-      2. Identify whether the entry in the current index of game.genre is unique.
-         a. If unique, add the name to the Genres Object and 1 count to that name    
-         b. If not unique, find the name in the Genres Object and add 1 count to that name
-    
-      3. Iterate over the new Genres Object and sort it by count.
-
-      4. Iterate over labels, and replace each with the corresponding keys for the Genres item in order
-         Limiting the loop to a specific number of iterations will limit the length of the graph!
-
-      5. Iterate over datasets/data, and replace each with the corresponding values for the Genres item in order
-    
-    */
-    
   }
 
   render() {
@@ -79,7 +57,7 @@ export default class GenreGraph extends Component {
         <Bar
         data={this.state}
         width={100}
-        height={200}
+        height={300}
         options={{
           maintainAspectRatio: false,
           title:{
